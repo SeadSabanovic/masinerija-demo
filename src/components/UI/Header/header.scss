@@ -1,0 +1,25 @@
+.header {
+  $block: &;
+  z-index: 99;
+  height: var(--header-height-desktop);
+  position: relative;
+
+  &__inner {
+    height: inherit;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding-left: calc(var(--sidebar-open) + 12px);
+    // TEMP SOLUTION
+    border-bottom: 1px solid #f4f4f4;
+    transition: padding 0.3s var(--transition-standard);
+
+    .sidebar-closed & {
+      padding-left: calc(var(--sidebar-closed) + 12px);
+    }
+  }
+}

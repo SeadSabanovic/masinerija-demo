@@ -1,0 +1,158 @@
+.button {
+  $block: &;
+  appearance: none;
+  outline: none;
+  border: none;
+  background-color: unset;
+  cursor: pointer;
+
+  &__inner {
+    text-transform: uppercase;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 50vw;
+    white-space: nowrap;
+    transition: transform 0.2s var(--transition-standard),
+      background-color 0.2s var(--transition-standard),
+      box-shadow 0.2s var(--transition-standard);
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &--md {
+    #{$block}__inner {
+      min-height: 38px;
+      font-size: 13px;
+      line-height: calc(16 / 13);
+      padding: 10px 16px;
+    }
+  }
+
+  &--lg {
+    #{$block}__inner {
+      min-height: 66px;
+      font-size: 18px;
+      line-height: calc(16 / 18);
+      padding: 25px 75.5px;
+    }
+  }
+
+  &--fab {
+    #{$block}__inner {
+      width: 60px;
+      aspect-ratio: 1/1;
+      justify-content: center;
+      background-color: var(--color-blue);
+      box-shadow: -1px 2px 4px 0px rgba(#00b1f4, 50%);
+    }
+
+    &:hover {
+      #{$block}__inner {
+        background-color: darken(#00b1f4, 4%);
+        box-shadow: 0 1px 2px 0 rgba(#00b1f4, 50%);
+      }
+    }
+  }
+
+  &--text {
+    #{$block}__inner {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: calc(16 / 14);
+    }
+  }
+
+  &--primary {
+    $color-primary: var(--color-yellow);
+
+    &:not(#{$block}--icon):not(#{$block}--text):not(:disabled) {
+      #{$block}__inner {
+        background-color: $color-primary;
+        color: var(--color-brown);
+      }
+
+      &:not(:disabled):hover {
+        #{$block}__inner {
+          background-color: darken(#ffcb00, 4%);
+        }
+      }
+    }
+
+    &#{$block}--text {
+      color: $color-primary;
+    }
+
+    path {
+      stroke: $color-primary;
+    }
+  }
+
+  &--success {
+    $color-success: var(--color-green);
+
+    &:not(#{$block}--icon):not(#{$block}--text):not(:disabled) {
+      #{$block}__inner {
+        background-color: $color-success;
+        color: var(--color-dark-green);
+      }
+
+      &:not(:disabled):hover {
+        #{$block}__inner {
+          background-color: darken(#85e0a3, 4%);
+        }
+      }
+    }
+
+    &#{$block}--text {
+      color: $color-success;
+    }
+
+    path {
+      stroke: $color-success;
+    }
+  }
+
+  &--warn {
+    $color-warn: var(--color-red);
+
+    &:not(#{$block}--icon):not(#{$block}--text):not(:disabled) {
+      #{$block}__inner {
+        background-color: $color-warn;
+        color: var(--color-dark-red);
+      }
+
+      &:not(:disabled):hover {
+        #{$block}__inner {
+          background-color: darken(#ee684f, 4%);
+        }
+      }
+    }
+
+    &#{$block}--text {
+      color: $color-warn;
+    }
+
+    path {
+      stroke: $color-warn;
+    }
+  }
+
+  &:disabled {
+    #{$block}__inner {
+      background-color: var(--color-grey-3);
+      color: var(--color-grey-5);
+    }
+  }
+
+  // On Click State
+  &:not(:disabled):active {
+    #{$block}__inner {
+      transform: scale(0.98);
+    }
+  }
+}

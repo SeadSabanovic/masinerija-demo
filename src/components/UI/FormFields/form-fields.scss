@@ -1,0 +1,194 @@
+.custom-input {
+  $block: &;
+
+  label {
+    color: var(--color-grey-5);
+    font-size: 12px;
+    line-height: 1rem;
+    transform: translate(12px, 8px) scale(1);
+
+    &.Mui-focused,
+    &.MuiFormLabel-filled {
+      color: var(--color-grey-5);
+      transform: translate(12px, 8px) scale(1);
+    }
+
+    &:not(.Mui-focused).Mui-error {
+      color: var(--color-red);
+    }
+  }
+
+  input {
+    padding: 28px 12px 8px;
+    height: 1rem;
+    color: var(--color-black);
+  }
+
+  .MuiInputBase-root {
+    border-radius: 8px;
+    border: unset;
+
+    &.Mui-focused {
+      fieldset {
+        border-width: 1px;
+        border-color: var(--color-blue);
+      }
+    }
+
+    &:not(.Mui-focused).Mui-error {
+      fieldset {
+        border-color: var(--color-red);
+      }
+    }
+
+    &:hover {
+      input:not(:focus) + fieldset {
+        border-color: var(--color-grey-3);
+      }
+    }
+  }
+
+  .MuiOutlinedInput-notchedOutline {
+    top: 0;
+  }
+
+  fieldset {
+    transition: border 0.1s var(--transition-standard);
+    border-color: var(--color-grey-2);
+  }
+
+  legend {
+    display: none;
+  }
+
+  &--small {
+    width: 52px;
+
+    input {
+      text-align: center;
+
+      &[type="number"]::-webkit-inner-spin-button {
+        display: none;
+      }
+    }
+
+    label {
+      left: 50%;
+      transform: translate(-50%, 8px) scale(1);
+      transform-origin: center;
+
+      &.Mui-focused,
+      &.MuiFormLabel-filled {
+        left: 50%;
+        color: var(--color-grey-5);
+        transform: translate(-50%, 8px) scale(1);
+      }
+    }
+  }
+
+  &--dropdown {
+    min-width: 340px;
+
+    .MuiInputBase-root {
+      padding: unset !important;
+      height: 52px;
+
+      &:not(.Mui-focused):hover {
+        fieldset {
+          border-color: var(--color-grey-3);
+        }
+      }
+    }
+
+    input {
+      padding: 28px 42px 8px 12px !important;
+      height: 1rem;
+    }
+
+    .MuiInputAdornment-root {
+      pointer-events: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 16px;
+      transition: transform 0.2s var(--transition-standard);
+    }
+
+    &.Mui-expanded .MuiInputAdornment-root {
+      transform: translateY(-50%) rotate(-180deg);
+    }
+  }
+
+  &--textarea {
+    min-width: 340px !important;
+
+    .MuiInputBase-root {
+      min-height: 72px;
+      padding: 28px 12px 8px !important;
+
+      &:not(.Mui-focused):not(.Mui-error):hover {
+        fieldset {
+          border-color: var(--color-grey-3);
+        }
+      }
+    }
+
+    textarea {
+      font-size: 12px;
+      line-height: 1rem;
+    }
+  }
+
+  &--date {
+    min-width: 340px !important;
+
+    #{$block}__calendar-toggle {
+      min-width: 24px;
+      cursor: pointer;
+    }
+
+    .MuiInputBase-root {
+      padding-right: 16px;
+
+      &:not(.Mui-focused):not(.Mui-error):hover {
+        fieldset {
+          border-color: var(--color-grey-3);
+        }
+      }
+    }
+  }
+}
+
+// Autocomplete Dropdown
+.MuiAutocomplete-popper {
+  .MuiPaper-root {
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
+    border-radius: unset;
+  }
+
+  ul {
+    position: relative;
+    padding: 4px 0 6px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      height: 2px;
+      width: 100%;
+      background-color: var(--color-blue);
+    }
+
+    li {
+      height: 30px;
+      padding: 0 24px !important;
+      font-size: 14px;
+      line-height: 1rem;
+
+      &[aria-selected="true"] {
+        background-color: var(--color-blue) !important;
+        color: var(--color-white);
+      }
+    }
+  }
+}
