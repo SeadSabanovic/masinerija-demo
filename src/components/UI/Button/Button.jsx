@@ -33,7 +33,11 @@ export default function Button({
     <button className={getButtonClasses()} disabled={disabled}>
       <div className="button__inner">
         {icon && icon}
-        {label && variant !== "fab" && variant !== "icon" ? label : ""}
+        {label && variant !== "fab" && variant !== "icon" ? (
+          <span>{label}</span>
+        ) : (
+          ""
+        )}
       </div>
     </button>
   );

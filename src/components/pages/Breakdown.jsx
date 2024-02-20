@@ -7,8 +7,8 @@ import Components from "../UI/Components";
 export default function Breakdown() {
   return (
     <div className="breakdown">
-      <Typography />
-      <Colors />
+      {/* <Typography />
+      <Colors /> */}
       <Components />
     </div>
   );
